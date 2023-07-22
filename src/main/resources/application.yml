@@ -1,3 +1,8 @@
 micronaut:
   application:
     name: micronautBugreport
+
+super:
+  name: super
+sub:
+  name: sub
