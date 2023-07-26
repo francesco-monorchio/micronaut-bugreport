@@ -27,10 +27,3 @@ class BootStrap {
     }
 }
 
-@KafkaClient
-interface HelloWorldClient {
-
-    @Topic('hello')
-    void send(@MessageBody String message)
-
-}

@@ -8,6 +8,7 @@ import groovy.transform.CompileStatic
 
 @CompileStatic
 class Application {
+
     @ContextConfigurer
     static class Configurer implements ApplicationContextConfigurer {
 
