@@ -1,0 +1,27 @@
+apply plugin: 'docker-compose'
+subprojects {
+    apply plugin: 'io.micronaut.minimal.application'
+    apply plugin: 'io.micronaut.test-resources-consumer'
+    dependencies {
+        implementation("io.micronaut.kafka:micronaut-kafka")
+        testResourcesService project(':test-resources')
+    }
+    micronaut {
+        runtime 'netty'
+        testRuntime 'spock2'
+        processing {
+            annotations('com.micronaut.*')
+            incremental(true)
+        }
+    }
+    application {
+        mainClass.set("com.micronaut.Application")
+    }
+    run.dependsOn parent.composeUp
+}
+
+dockerCompose {
+    useComposeFiles = [
+            "${rootDir}/docker-compose.yml"
+    ]
+}

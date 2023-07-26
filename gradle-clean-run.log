@@ -1,0 +1,78 @@
+> Task :kafka:clean UP-TO-DATE
+> Task :test-resources:clean
+> Task :kafka:consumer:clean
+> Task :kafka:producer:clean
+> Task :kafka:composeBuild
+
+> Task :kafka:composeUp
+Will use 172.24.0.1 (network f9a539a084a9436ea5adb443094fc698_kafka__default) as host of kafka
+More forwarded TCP ports for service 'kafka:9092 [[HostIp:0.0.0.0, HostPort:9092], [HostIp:::, HostPort:9092]]'. Will use the first one.
+Probing TCP socket on 172.24.0.1:9092 of 'kafka-1'
+TCP socket on 172.24.0.1:9092 of 'kafka-1' is ready
++---------+----------------+-----------------+
+| Name    | Container Port | Mapping         |
++---------+----------------+-----------------+
+| kafka-1 | 9092           | 172.24.0.1:9092 |
++---------+----------------+-----------------+
+
+> Task :kafka:composeDownForcedOnFailure SKIPPED
+> Task :test-resources:compileTestResourcesJava NO-SOURCE
+> Task :test-resources:compileTestResourcesGroovy NO-SOURCE
+> Task :test-resources:processTestResourcesResources NO-SOURCE
+> Task :test-resources:testResourcesClasses UP-TO-DATE
+[34m[test-resources-service][0;39m [36m20:10:21.205[0;39m [1;30m[ForkJoinPool.commonPool-worker-1][0;39m [34mINFO [0;39m [35mi.m.t.e.TestResourcesResolverLoader[0;39m - Loaded 2 test resources resolvers: io.micronaut.testresources.kafka.KafkaTestResourceProvider, io.micronaut.testresources.testcontainers.GenericTestContainerProvider
+[34m[test-resources-service][0;39m [36m20:10:21.766[0;39m [1;30m[main][0;39m [34mINFO [0;39m [35mi.m.t.server.TestResourcesService[0;39m - A Micronaut Test Resources server is listening on port 35169, started in 965ms
+> Task :test-resources:internalStartTestResourcesService
+> Task :kafka:consumer:compileJava NO-SOURCE
+> Task :kafka:consumer:compileGroovy
+> Task :kafka:consumer:processResources
+> Task :kafka:consumer:classes
+> Task :kafka:consumer:inspectRuntimeClasspath
+
+> Task :kafka:consumer:run FAILED
+20:10:26.841 [main] INFO  i.m.c.DefaultApplicationContext$RuntimeConfiguredEnvironment - Established active environments: [dev]
+20:10:27.278 [main] ERROR io.micronaut.runtime.Micronaut - Error starting Micronaut server: java.net.ConnectException
+io.micronaut.testresources.client.TestResourcesException: java.net.ConnectException
+	at io.micronaut.testresources.client.DefaultTestResourcesClient.request(DefaultTestResourcesClient.java:144)
+	at io.micronaut.testresources.client.DefaultTestResourcesClient.getRequiredPropertyEntries(DefaultTestResourcesClient.java:99)
+	at java.base/java.util.Optional.map(Optional.java:260)
+	at io.micronaut.testresources.client.TestResourcesClientPropertySourceLoader$ClientTestResourcesResolver.getPropertyEntries(TestResourcesClientPropertySourceLoader.java:50)
+	at io.micronaut.testresources.core.LazyTestResourcesPropertySourceLoader$LazyPropertySource.computeKeys(LazyTestResourcesPropertySourceLoader.java:98)
+	at io.micronaut.testresources.core.LazyTestResourcesPropertySourceLoader$LazyPropertySource.iterator(LazyTestResourcesPropertySourceLoader.java:90)
+	at io.micronaut.context.env.PropertySourcePropertyResolver.processPropertySource(PropertySourcePropertyResolver.java:596)
+	at io.micronaut.context.env.DefaultEnvironment.readPropertySources(DefaultEnvironment.java:449)
+	at io.micronaut.context.env.DefaultEnvironment.start(DefaultEnvironment.java:278)
+	at io.micronaut.context.DefaultApplicationContext$RuntimeConfiguredEnvironment.start(DefaultApplicationContext.java:881)
+	at io.micronaut.context.DefaultApplicationContext$RuntimeConfiguredEnvironment.start(DefaultApplicationContext.java:850)
+	at io.micronaut.context.DefaultApplicationContext.startEnvironment(DefaultApplicationContext.java:251)
+	at io.micronaut.context.DefaultApplicationContext.start(DefaultApplicationContext.java:190)
+	at io.micronaut.runtime.Micronaut.start(Micronaut.java:73)
+	at io.micronaut.runtime.Micronaut.run(Micronaut.java:322)
+	at io.micronaut.runtime.Micronaut.run(Micronaut.java:297)
+	at com.micronaut.Application.main(Application.groovy:29)
+Caused by: java.net.ConnectException: null
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:573)
+	at java.net.http/jdk.internal.net.http.HttpClientFacade.send(HttpClientFacade.java:123)
+	at io.micronaut.testresources.client.DefaultTestResourcesClient.request(DefaultTestResourcesClient.java:134)
+	... 16 common frames omitted
+Caused by: java.net.ConnectException: null
+	at java.net.http/jdk.internal.net.http.common.Utils.toConnectException(Utils.java:1047)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:198)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.checkRetryConnect(PlainHttpConnection.java:230)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$1(PlainHttpConnection.java:206)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
+	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1773)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.nio.channels.ClosedChannelException: null
+	at java.base/sun.nio.ch.SocketChannelImpl.ensureOpen(SocketChannelImpl.java:195)
+	at java.base/sun.nio.ch.SocketChannelImpl.beginConnect(SocketChannelImpl.java:760)
+	at java.base/sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:848)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$0(PlainHttpConnection.java:183)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:185)
+	... 9 common frames omitted
+11 actionable tasks: 10 executed, 1 up-to-date

@@ -1,3 +1,6 @@
-
 rootProject.name="micronaut-bugreport"
 
+include ':kafka:consumer'
+include ':kafka:producer'
+
+include ':test-resources'

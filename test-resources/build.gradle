@@ -1,0 +1,9 @@
+apply plugin: 'io.micronaut.test-resources'
+
+micronaut {
+    testResources {
+        additionalModules.with {
+            add(KAFKA)
+        }
+    }
+}

@@ -1,0 +1,81 @@
+> Task :kafka:clean UP-TO-DATE
+> Task :test-resources:clean
+> Task :kafka:consumer:clean
+> Task :kafka:producer:clean
+> Task :kafka:compileJava NO-SOURCE
+> Task :kafka:compileGroovy NO-SOURCE
+> Task :kafka:processResources NO-SOURCE
+> Task :kafka:classes UP-TO-DATE
+> Task :kafka:compileTestJava NO-SOURCE
+> Task :kafka:compileTestGroovy NO-SOURCE
+> Task :kafka:processTestResources NO-SOURCE
+> Task :kafka:testClasses UP-TO-DATE
+> Task :kafka:test NO-SOURCE
+> Task :test-resources:compileJava NO-SOURCE
+> Task :test-resources:compileGroovy NO-SOURCE
+> Task :test-resources:processResources NO-SOURCE
+> Task :test-resources:classes UP-TO-DATE
+> Task :test-resources:compileTestJava NO-SOURCE
+> Task :test-resources:compileTestGroovy NO-SOURCE
+> Task :test-resources:compileTestResourcesJava NO-SOURCE
+> Task :test-resources:compileTestResourcesGroovy NO-SOURCE
+> Task :test-resources:processTestResourcesResources NO-SOURCE
+> Task :test-resources:testResourcesClasses UP-TO-DATE
+[34m[test-resources-service][0;39m [36m20:08:57.598[0;39m [1;30m[ForkJoinPool.commonPool-worker-5][0;39m [34mINFO [0;39m [35mi.m.t.e.TestResourcesResolverLoader[0;39m - Loaded 2 test resources resolvers: io.micronaut.testresources.kafka.KafkaTestResourceProvider, io.micronaut.testresources.testcontainers.GenericTestContainerProvider
+[34m[test-resources-service][0;39m [36m20:08:58.136[0;39m [1;30m[main][0;39m [34mINFO [0;39m [35mi.m.t.server.TestResourcesService[0;39m - A Micronaut Test Resources server is listening on port 37333, started in 926ms
+> Task :test-resources:internalStartTestResourcesService
+> Task :test-resources:processTestResources NO-SOURCE
+> Task :test-resources:testClasses UP-TO-DATE
+> Task :test-resources:test NO-SOURCE
+> Task :kafka:consumer:compileJava NO-SOURCE
+> Task :kafka:consumer:compileGroovy
+> Task :kafka:consumer:processResources
+> Task :kafka:consumer:classes
+> Task :kafka:consumer:compileTestJava NO-SOURCE
+> Task :kafka:consumer:compileTestGroovy
+> Task :kafka:consumer:copyTestResourceServerConfig
+> Task :kafka:consumer:inspectRuntimeClasspath
+> Task :kafka:consumer:processTestResources NO-SOURCE
+> Task :kafka:consumer:testClasses
+[34m[test-resources-service][0;39m [36m20:09:05.068[0;39m [1;30m[default-nioEventLoopGroup-1-2][0;39m [34mINFO [0;39m [35mi.m.t.e.TestResourcesResolverLoader[0;39m - Loaded 2 test resources resolvers: io.micronaut.testresources.kafka.KafkaTestResourceProvider, io.micronaut.testresources.testcontainers.GenericTestContainerProvider
+[34m[test-resources-service][0;39m [36m20:09:05.403[0;39m [1;30m[default-nioEventLoopGroup-1-2][0;39m [34mINFO [0;39m [35mo.t.utility.ImageNameSubstitutor[0;39m - Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+[34m[test-resources-service][0;39m [36m20:09:05.410[0;39m [1;30m[default-nioEventLoopGroup-1-2][0;39m [34mINFO [0;39m [35mi.m.t.testcontainers.TestContainers[0;39m - Starting test container kafka
+[34m[test-resources-service][0;39m [36m20:09:05.573[0;39m [1;30m[default-nioEventLoopGroup-1-2][0;39m [34mINFO [0;39m [35mo.t.d.DockerClientProviderStrategy[0;39m - Loaded org.testcontainers.dockerclient.UnixSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+[34m[test-resources-service][0;39m [36m20:09:05.839[0;39m [1;30m[default-nioEventLoopGroup-1-2][0;39m [34mINFO [0;39m [35mo.t.d.DockerClientProviderStrategy[0;39m - Found Docker environment with local Unix socket (unix:///var/run/docker.sock)
+[34m[test-resources-service][0;39m [36m20:09:05.840[0;39m [1;30m[default-nioEventLoopGroup-1-2][0;39m [34mINFO [0;39m [35mo.testcontainers.DockerClientFactory[0;39m - Docker host IP address is localhost
+[34m[test-resources-service][0;39m [36m20:09:05.856[0;39m [1;30m[default-nioEventLoopGroup-1-2][0;39m [34mINFO [0;39m [35mo.testcontainers.DockerClientFactory[0;39m - Connected to docker: 
+  Server Version: 20.10.17-ce
+  API Version: 1.41
+  Operating System: openSUSE Tumbleweed
+  Total Memory: 31823 MB
+[34m[test-resources-service][0;39m [36m20:09:06.105[0;39m [1;30m[default-nioEventLoopGroup-1-2][0;39m [34mINFO [0;39m [35mtc.testcontainers/ryuk:0.5.1[0;39m - Creating container for image: testcontainers/ryuk:0.5.1
+[34m[test-resources-service][0;39m [36m20:09:06.112[0;39m [1;30m[default-nioEventLoopGroup-1-2][0;39m [34mINFO [0;39m [35mo.t.utility.RegistryAuthLocator[0;39m - Failure when attempting to lookup auth config. Please ignore if you don't have images in an authenticated registry. Details: (dockerImageName: testcontainers/ryuk:0.5.1, configFile: /home/fmonorchio/.docker/config.json, configEnv: DOCKER_AUTH_CONFIG). Falling back to docker-java default behaviour. Exception message: Status 404: No config supplied. Checked in order: /home/fmonorchio/.docker/config.json (file not found), DOCKER_AUTH_CONFIG (not set)
+[34m[test-resources-service][0;39m [36m20:09:06.223[0;39m [1;30m[default-nioEventLoopGroup-1-2][0;39m [34mINFO [0;39m [35mtc.testcontainers/ryuk:0.5.1[0;39m - Container testcontainers/ryuk:0.5.1 is starting: bba44ebe13fa0567231bb32073dd80afac7f83180465373710053aa4d2c26c35
+[34m[test-resources-service][0;39m [36m20:09:06.678[0;39m [1;30m[default-nioEventLoopGroup-1-2][0;39m [34mINFO [0;39m [35mtc.testcontainers/ryuk:0.5.1[0;39m - Container testcontainers/ryuk:0.5.1 started in PT0.815130128S
+[34m[test-resources-service][0;39m [36m20:09:06.684[0;39m [1;30m[default-nioEventLoopGroup-1-2][0;39m [34mINFO [0;39m [35mo.t.utility.RyukResourceReaper[0;39m - Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+[34m[test-resources-service][0;39m [36m20:09:06.684[0;39m [1;30m[default-nioEventLoopGroup-1-2][0;39m [34mINFO [0;39m [35mo.testcontainers.DockerClientFactory[0;39m - Checking the system...
+[34m[test-resources-service][0;39m [36m20:09:06.685[0;39m [1;30m[default-nioEventLoopGroup-1-2][0;39m [34mINFO [0;39m [35mo.testcontainers.DockerClientFactory[0;39m - ✔︎ Docker server version should be at least 1.6.0
+[34m[test-resources-service][0;39m [36m20:09:06.685[0;39m [1;30m[default-nioEventLoopGroup-1-2][0;39m [34mINFO [0;39m [35mtc.confluentinc/cp-kafka:7.0.4[0;39m - Creating container for image: confluentinc/cp-kafka:7.0.4
+[34m[test-resources-service][0;39m [36m20:09:06.778[0;39m [1;30m[default-nioEventLoopGroup-1-2][0;39m [34mINFO [0;39m [35mtc.confluentinc/cp-kafka:7.0.4[0;39m - Container confluentinc/cp-kafka:7.0.4 is starting: 7ccde660ec5792b20cae34a2978bb164f4a771ee47427696004ee8d0a1b70af9
+[34m[test-resources-service][0;39m [36m20:09:14.143[0;39m [1;30m[default-nioEventLoopGroup-1-2][0;39m [34mINFO [0;39m [35mtc.confluentinc/cp-kafka:7.0.4[0;39m - Container confluentinc/cp-kafka:7.0.4 started in PT7.457327166S
+> Task :kafka:consumer:test
+> Task :kafka:producer:compileJava NO-SOURCE
+> Task :kafka:producer:compileGroovy
+> Task :kafka:producer:processResources
+> Task :kafka:producer:classes
+> Task :kafka:producer:compileTestJava NO-SOURCE
+> Task :kafka:producer:compileTestGroovy
+> Task :kafka:producer:copyTestResourceServerConfig
+> Task :kafka:producer:inspectRuntimeClasspath
+> Task :kafka:producer:processTestResources NO-SOURCE
+> Task :kafka:producer:testClasses
+> Task :kafka:producer:test
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 25s
+17 actionable tasks: 16 executed, 1 up-to-date

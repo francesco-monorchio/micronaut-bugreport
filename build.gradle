@@ -1,60 +1,41 @@
-plugins {
-    id("groovy") 
-    id("com.github.johnrengelman.shadow") version "8.1.1"
-    id("io.micronaut.application") version "4.0.1"
-    id("io.micronaut.aot") version "4.0.1"
-}
-
-version = "0.1"
-group = "com.micronaut"
-
-repositories {
-    maven { url "https://s01.oss.sonatype.org/content/repositories/snapshots/"
-        mavenContent { snapshotsOnly() }
+buildscript {
+    repositories {
+        gradlePluginPortal()
     }
-    mavenCentral()
-}
 
-dependencies {
-    implementation("io.micronaut:micronaut-aop")
-    implementation("io.micronaut:micronaut-http-client")
-    implementation("io.micronaut:micronaut-retry")
-    implementation("io.micronaut.groovy:micronaut-runtime-groovy")
-    implementation("io.micronaut.serde:micronaut-serde-jackson")
-    compileOnly("io.micronaut.serde:micronaut-serde-processor")
-    runtimeOnly("ch.qos.logback:logback-classic")
-    runtimeOnly("org.yaml:snakeyaml")
-}
-
-
-application {
-    mainClass.set("com.micronaut.Application")
-}
-java {
-    sourceCompatibility = JavaVersion.toVersion("17")
-    targetCompatibility = JavaVersion.toVersion("17")
-}
-
-graalvmNative.toolchainDetection = false
-micronaut {
-    runtime("netty")
-    testRuntime("spock2")
-    processing {
-        incremental(true)
-        annotations("com.micronaut.*")
-    }
-    aot {
-    // Please review carefully the optimizations enabled below
-    // Check https://micronaut-projects.github.io/micronaut-aot/latest/guide/ for more details
-        optimizeServiceLoading = false
-        convertYamlToJava = false
-        precomputeOperations = true
-        cacheEnvironment = true
-        optimizeClassLoading = true
-        deduceEnvironment = true
-        optimizeNetty = true
+    dependencies {
+        classpath "com.avast.gradle:gradle-docker-compose-plugin:0.16.12"
+        classpath("io.micronaut.gradle:micronaut-minimal-plugin:4.0.1")
+        classpath("io.micronaut.gradle:micronaut-test-resources-plugin:4.0.1")
     }
 }
 
+subprojects {
+    apply plugin: 'groovy'
 
+    version = "0.1"
+    group = "com.micronaut"
 
+    repositories {
+        maven { url "https://s01.oss.sonatype.org/content/repositories/snapshots/"
+            mavenContent { snapshotsOnly() }
+        }
+        mavenCentral()
+    }
+
+    dependencies {
+        implementation("io.micronaut:micronaut-aop")
+        implementation("io.micronaut:micronaut-http-client")
+        implementation("io.micronaut:micronaut-retry")
+        implementation("io.micronaut.groovy:micronaut-runtime-groovy")
+        implementation("io.micronaut.serde:micronaut-serde-jackson")
+        compileOnly("io.micronaut.serde:micronaut-serde-processor")
+        runtimeOnly("ch.qos.logback:logback-classic")
+        runtimeOnly("org.yaml:snakeyaml")
+    }
+
+    java {
+        sourceCompatibility = JavaVersion.toVersion("17")
+        targetCompatibility = JavaVersion.toVersion("17")
+    }
+}
