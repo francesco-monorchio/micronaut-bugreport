@@ -19,7 +19,6 @@ class ConfigInjectionSpec extends Specification {
         subConfig.name == 'sub'
         superConfig.name == 'super'
         superConfig.sub.name == 'sub'
-
     }
 
 }
