@@ -10,15 +10,9 @@ class ConfigInjectionSpec extends Specification {
     @Inject
     SuperConfig superConfig
 
-    @Inject
-    SubConfig subConfig
-
-    void 'test it works'() {
-
+    void 'super and sub should be as expected'() {
         expect:
-        subConfig.name == 'sub'
         superConfig.name == 'super'
         superConfig.sub.name == 'sub'
     }
-
 }

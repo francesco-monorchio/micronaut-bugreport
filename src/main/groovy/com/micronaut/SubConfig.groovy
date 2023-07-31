@@ -1,11 +1,9 @@
 package com.micronaut
 
-import io.micronaut.context.annotation.ConfigurationProperties
-import io.micronaut.core.annotation.Introspected
 
-@ConfigurationProperties('sub')
+import io.micronaut.serde.annotation.Serdeable
+
+@Serdeable
 class SubConfig {
-
     String name
-
 }

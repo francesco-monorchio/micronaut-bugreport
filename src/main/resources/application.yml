@@ -4,5 +4,6 @@ micronaut:
 
 super:
   name: super
-sub:
-  name: sub
+  sub:
+    - name: sub
+
